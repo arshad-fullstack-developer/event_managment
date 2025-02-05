@@ -32,7 +32,7 @@ Set up your database schema and populate it with dummy data:
 
 php artisan migrate:fresh --seed
 
-7. Install Frontend Dependencies
+6. Install Frontend Dependencies
 Install the required frontend dependencies using npm:
 
 npm install
