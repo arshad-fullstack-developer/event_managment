@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('location');
             $table->enum('status', ['upcoming', 'ongoing', 'completed'])->default('upcoming');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->default(1);
             $table->timestamps();
         });
     }
