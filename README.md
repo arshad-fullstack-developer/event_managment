@@ -21,7 +21,7 @@ Run the following to install all the necessary backend dependencies:
 
 composer install
 
-5. Generate Application Key
+4. Generate Application Key
 Generate your unique application key:
 
 php artisan key:generate
