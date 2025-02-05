@@ -24,25 +24,29 @@ composer install
 5. Generate Application Key
 Generate your unique application key:
 
-
 php artisan key:generate
+
+
 5. Run Migrations and Seed the Database
 Set up your database schema and populate it with dummy data:
 
-
 php artisan migrate:fresh --seed
-6. Install Frontend Dependencies
+
+7. Install Frontend Dependencies
 Install the required frontend dependencies using npm:
 
 npm install
+
 7. Build Assets for Development
 Compile and prepare your assets for development:
 
 npm run dev
+
 8. Start the Server
 Finally, launch the development server:
 
 php artisan serve
+
 9. Login Credentials
 To log in, use the following credentials (default admin):
 
