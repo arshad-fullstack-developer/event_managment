@@ -9,6 +9,7 @@ Clone this repo using Git:
 *
 
 *git clone <repo_url>
+
 2. Set Up Your Environment
  the .env.example file to .env and input your database credentials:
 
