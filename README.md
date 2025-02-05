@@ -19,9 +19,9 @@ Make sure to update the database connection details in the .env file.*
 3. Install Backend Dependencies
 Run the following to install all the necessary backend dependencies:
 
-
 composer install
-4. Generate Application Key
+
+5. Generate Application Key
 Generate your unique application key:
 
 
