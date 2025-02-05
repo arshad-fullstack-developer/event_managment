@@ -20,8 +20,10 @@ return new class extends Migration
             $table->date('date');
             $table->string('location');
             $table->enum('status', ['upcoming', 'ongoing', 'completed'])->default('upcoming');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade')->default(1);
+            $table->unsignedBigInteger('user_id')->default(1); // Default user_id is 1
             $table->timestamps();
+            // Foreign key constraint (optional but recommended)
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
