@@ -4,17 +4,17 @@ Welcome to the Event Management System built with Laravel and Vue 3 (using the C
 🛠️ Getting Started
 Follow these simple steps to get the project up and running on your local machine:
 
-1. Clone the Repository
+*1. Clone the Repository
 Clone this repo using Git:
+*
 
-
-git clone <repo_url>
+*git clone <repo_url>
 2. Set Up Your Environment
  the .env.example file to .env and input your database credentials:
 
 
 cp .env.example .env
-Make sure to update the database connection details in the .env file.
+Make sure to update the database connection details in the .env file.*
 
 3. Install Backend Dependencies
 Run the following to install all the necessary backend dependencies:
