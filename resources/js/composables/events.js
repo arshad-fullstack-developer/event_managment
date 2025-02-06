@@ -2,11 +2,13 @@ import { ref } from 'vue'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
 
-export default function useevents() {
+export default function useEvents() {
 
     const event = ref([])
     const events = ref([])
     const errors = ref('')
+    const loading = ref(false);
+
 
     const router = useRouter()
 
@@ -64,6 +66,7 @@ export default function useevents() {
         storeEvent,
         updateEvent,
         destroyEvent,
-        errors
+        errors,
+        loading
     }
 }

@@ -1,14 +1,11 @@
 require('./bootstrap');
 
 import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
-
-
 import { createApp } from 'vue'
 import router from './router/index'
+
+window.Alpine = Alpine;
+Alpine.start();
 
 //DataTable
 import 'primevue/resources/themes/tailwind-light/theme.css' //theme
@@ -26,6 +23,8 @@ const app = createApp({
         Index
     }
 });
+
+
 
 app.use(router);
 app.use(PrimeVue);

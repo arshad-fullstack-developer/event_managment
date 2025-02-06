@@ -1,7 +1,7 @@
  <template>
      <div>
 
-     <h3 class="text-2xl mb-4">Edit event</h3>
+     <h3 class="text-2xl mb-4">Edit Event</h3>
 
      <form class="space-y-6" @submit.prevent="editEvent" method="POST">
         <div class="space-y-4 rounded-md shadow-sm">
@@ -89,8 +89,8 @@
         <div class="flex place-content-end mb-4">
         <button type="submit"
                 class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-blue-800 rounded-md border border-transparent ring-blue-300 transition duration-150 ease-in-out hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring disabled:opacity-25">
-            Create
-        </button>
+                {{ loading ? 'Updating...' : 'Update' }}
+            </button>
         </div>
     </form>
  </div>
@@ -111,17 +111,21 @@
 
      setup(props) {
 
-        const { errors, getEvent, event, updateEvent } = useEvents()
-
+        const { errors, getEvent, event, loading, updateEvent } = useEvents()
+        
         onMounted(() => getEvent(props.id))
 
         const editEvent = async () => {
+
+               loading.value = true;
+               
                await updateEvent(props.id)
         }
 
         return {
             event,
             errors,
+            loading,
             editEvent
         }
      }

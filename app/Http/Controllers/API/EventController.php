@@ -7,6 +7,8 @@ use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
+use App\Models\User;
+use App\Notifications\EventAssigned;
 use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
@@ -17,7 +19,7 @@ class EventController extends Controller
     */
    public function index()
    {
-       return EventResource::collection(Event::where('user_id',Auth::id())->get());
+       return EventResource::collection(Event::all());
    }
 
    /**
@@ -29,8 +31,12 @@ class EventController extends Controller
    public function store(StoreEventRequest $request)
    {
 
-       $request['user_id'] = Auth::id();
-       $event = Event::create($request->all());
+       $event = Event::create($request->validated());
+        
+       //assigned event to the user
+       $user = User::find(Auth::id());
+       $user->notify(new EventAssigned($event));
+       
        return new EventResource($event);
    }
 

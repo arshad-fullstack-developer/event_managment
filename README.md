@@ -51,6 +51,29 @@ npm run dev
 8. Start the Server
 Launch the development server:
 
+
+
+9. Configure Mailtrap for Email Notifications
+The "Assign Event" functionality now sends email notifications to users when an event is created. To set up email notifications:
+
+Create an account on Mailtrap.
+Set up a new project and grab your Mailtrap credentials (SMTP settings).
+Add your Mailtrap credentials to the .env file like so:
+env
+
+Copy
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=<your_mailtrap_username>
+MAIL_PASSWORD=<your_mailtrap_password>
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=your-email@example.com
+MAIL_FROM_NAME="${APP_NAME}"
+Make sure to replace <your_mailtrap_username> and <your_mailtrap_password> with the credentials from Mailtrap.
+
+
+
 bash
 Copy
 php artisan serve
@@ -70,6 +93,8 @@ CRUD Operations: Create, Read, Update, and Delete events effortlessly.
 User Authentication: Powered by Laravel Breeze for secure login/registration.
 
 API Authentication: Secured with Laravel Sanctum for robust API protection.
+
+AssignEvent: with Email Notification: When an event is created, the user will receive an email notification with event details.
 
 🔧 Technologies Used
 Backend: Laravel 8.x, Laravel Breeze, Sanctum

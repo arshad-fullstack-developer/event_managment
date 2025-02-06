@@ -15,6 +15,5 @@ class Event extends Model
         'date',
         'location',
         'status',
-        'user_id'
     ];
 }

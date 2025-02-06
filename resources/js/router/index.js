@@ -1,8 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
-import Index from '../components/events/Index.vue'
-import Create from '../components/events/Create.vue'
-import Edit from '../components/events/Edit.vue'
+import Index from '../components/events/Index.vue';
+import Create from '../components/events/Create.vue';
+import Edit from '../components/events/Edit.vue';
+import Show from '../components/events/Show.vue';
+
 
 const routes = [
     {
@@ -20,6 +22,12 @@ const routes = [
         path: '/events/:id/edit',
         name: 'events.edit',
         component: Edit,
+        props: true
+    },
+    {
+        path: '/events/:id/show',
+        name: 'events.show',
+        component: Show,
         props: true
     }
 ]

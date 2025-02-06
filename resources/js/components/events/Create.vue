@@ -1,7 +1,7 @@
  <template>
      <div>
 
-     <h3 class="text-2xl mb-4">Create new event</h3>
+     <h3 class="text-2xl mb-4">Create New Event</h3>
 
     <form class="space-y-6" @submit.prevent="saveEvent" method="POST">
         <div class="space-y-4 rounded-md shadow-sm">
@@ -85,11 +85,10 @@
             </div>
 
         </div>
-
         <div class="flex place-content-end mb-4">
         <button type="submit"
                 class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-blue-800 rounded-md border border-transparent ring-blue-300 transition duration-150 ease-in-out hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring disabled:opacity-25">
-            Create
+               {{ loading ? 'Saving...' : 'Create' }}
         </button>
         </div>
     </form>
@@ -97,7 +96,7 @@
  </template>
  <script>
 
- import { reactive } from 'vue'
+ import { reactive,ref } from 'vue'
  import useEvents from '../../composables/events'
 
  export default {
@@ -105,15 +104,19 @@
 
         const form = reactive({})
 
-        const { errors, storeEvent } = useEvents()
+        const { errors, loading, storeEvent } = useEvents()
 
         const saveEvent = async () => {
+
+               loading.value = true; 
+               
                await storeEvent({ ...form})
         }
 
         return {
             form,
             errors,
+            loading,
             saveEvent
         }
      }
